@@ -1,0 +1,88 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - in_preview: Whether the plugin is being rendered in preview mode.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+{{ title_prefix }}
+	{% if label %}
+		<h2{{title_attributes}}>{{ label }}</h2>
+	{% endif %}
+	{{ title_suffix }}
+  {% block content %}
+    {% set added_categories = [] %}
+
+    <div class="categories">
+      {% for term in content.field_paragraph %}
+        {% set para = term['#paragraph'] %}
+        {% set tid = para.field_insurance_type.entity.tid.value %}
+        {% set name = para.field_insurance_type.entity.name.value %}
+
+        {% if tid is not null and tid not in added_categories %}
+          <div class="category-btn" data-category="{{ tid }}">{{ name }}</div>
+          {% set added_categories = added_categories|merge([tid]) %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="cards-container">
+      {% for para_wrap in content.field_paragraph %}
+        {% set para = para_wrap['#paragraph'] %}
+        {% set tid = para.field_insurance_type.entity.tid.value %}
+        {% if tid %}
+          <div class="card" data-category="{{ tid }}">
+            <img src="{{ file_url(para.field_image.entity.uri.value) }}" alt="{{ para.field_image.alt|default('Insurance Image') }}">
+            <span>{{ para.field_title.value }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".category-btn");
+        const cards = document.querySelectorAll(".card");
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const category = btn.getAttribute("data-category");
+            cards.forEach((card) => {
+              card.style.display =
+                card.getAttribute("data-category") === category ? "block" : "none";
+            });
+          });
+        });
+      });
+    </script>
+  {% endblock %}
+</div>
