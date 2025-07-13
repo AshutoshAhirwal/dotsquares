@@ -6,6 +6,7 @@ global-styling:
   js:
     node_modules/@splidejs/splide/dist/js/splide.min.js: {}
     assets/js/header-js.js: {}
+    assets/js/insurance-plan.js: {}
     assets/js/firstindustrial-news.js: {}
   dependencies:
     - core/drupal

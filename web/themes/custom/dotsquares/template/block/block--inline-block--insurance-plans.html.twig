@@ -67,22 +67,5 @@
         {% endif %}
       {% endfor %}
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const buttons = document.querySelectorAll(".category-btn");
-        const cards = document.querySelectorAll(".card");
-
-        buttons.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const category = btn.getAttribute("data-category");
-            cards.forEach((card) => {
-              card.style.display =
-                card.getAttribute("data-category") === category ? "block" : "none";
-            });
-          });
-        });
-      });
-    </script>
   {% endblock %}
 </div>
