@@ -1,0 +1,22 @@
+{
+  "name": "dotsquares",
+  "version": "1.0.0",
+  "description": "[Bootstrap 5](https://www.drupal.org/project/bootstrap5) subtheme.",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass --style=compressed --load-path=node_modules assets/scss/style.scss dist/css/style.css",
+    "watch": "sass --watch --style=compressed --load-path=node_modules assets/scss/style.scss dist/css/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.89.2"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4"
+  }
+}

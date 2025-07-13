@@ -1,0 +1,129 @@
+.block-inline-blocktestimonials {
+  margin: 60px 0;
+
+  @media (min-width: 1200px) {
+    margin: 121px 0;
+  }
+
+  .testimonials-title {
+    margin-bottom: 77px;
+    font-family: Poppins;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+}
+
+.splide.testimonials__items {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .splide__arrow--next,
+  .splide__arrow--prev {
+    width: 51px;
+    height: 51px;
+    background-color: #F7FAFC;
+
+    svg {
+      fill: #CBD5E0;
+    }
+  }
+
+  .splide__arrow--prev {
+    bottom: -100px;
+    top: unset;
+    left: 0;
+  }
+
+  .splide__arrow--next {
+    right: unset;
+    bottom: -100px;
+    top: unset;
+    left: 70px;
+  }
+
+  @media (min-width: 1200px) {
+    .splide__arrow--prev {
+      left: -58px;
+      top: 50%;
+    }
+
+    .splide__arrow--next {
+      right: -58px;
+      top: 50%;
+      bottom: unset;
+      left: unset;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .splide__arrow--prev {
+      left: -101px;
+    }
+
+    .splide__arrow--next {
+      right: -101px;
+    }
+  }
+}
+
+.testimonials-item {
+  background-color: #E6FFFA;
+  padding: 12px;
+
+  &__content {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 7px;
+
+    img {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__title {
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+
+  &__designation {
+    font-family: Poppins;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0%;
+  }
+
+  &__desc {
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0%;
+    margin-top: 8px;
+  }
+
+  &__rating {
+
+    .star--filled {
+      color: #FFBB00;
+    }
+
+    .star--empty {
+      border-color: #FFBB00;
+    }
+  }
+
+}

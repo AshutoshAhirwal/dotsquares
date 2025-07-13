@@ -1,0 +1,20 @@
+.lbs-banner-bg-image {
+  position: relative;
+
+  &::before {
+    background-image: url('/themes/custom/dotsquares/assets/images/banner-bg-wave.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 1;
+    z-index: -1;
+    bottom: -50px;
+    content: '';
+    position: absolute;
+
+    @media (min-width: 1200px) {
+      width: 872px;
+      height: 375px;
+    }
+  }
+}

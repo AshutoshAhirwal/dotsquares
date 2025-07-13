@@ -1,0 +1,14 @@
+@import 'header';
+@import 'footer';
+@import 'lbs-style';
+@import 'ckeditor';
+
+.main-wrapper {
+  margin-top: 89px;
+}
+.container {
+  @media (min-width: 1440px) {
+    max-width: 1224px;
+    margin: 0 auto;
+  }
+}

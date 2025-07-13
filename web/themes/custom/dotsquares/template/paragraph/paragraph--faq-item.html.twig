@@ -1,0 +1,16 @@
+{% set heading_id = 'faqHeading-' ~ paragraph.id.entity.id.value %}
+{% set collapse_id = 'faqCollapse-' ~ paragraph.id.entity.id.value %}
+
+<div class="accordion-item">
+	<h2 class="accordion-header" id="{{ heading_id }}">
+		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ collapse_id }}" aria-expanded="false" aria-controls="{{ collapse_id }}">
+			{{ content.field_title.0['#context'].value }}
+		</button>
+	</h2>
+
+	<div id="{{ collapse_id }}" class="accordion-collapse collapse" aria-labelledby="{{ heading_id }}" data-bs-parent="#faqAccordion">
+		<div class="accordion-body">
+			{{ content.field_summary.0['#text']|raw }}
+		</div>
+	</div>
+</div>

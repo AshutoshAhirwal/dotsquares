@@ -1,0 +1,14 @@
+global-styling:
+  css:
+    theme:
+      dist/css/style.css: {}
+      node_modules/@splidejs/splide/dist/css/splide.min.css: {}
+  js:
+    node_modules/@splidejs/splide/dist/js/splide.min.js: {}
+    assets/js/header-js.js: {}
+    assets/js/firstindustrial-news.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once
