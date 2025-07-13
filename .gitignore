@@ -44,8 +44,8 @@ nbproject
 nbproject/*
 
 #Exports
-*.gz
-*.sql
+# *.gz
+# *.sql
 *.zip
 
 # Generate & temporary files
